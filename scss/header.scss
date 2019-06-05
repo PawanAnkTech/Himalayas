@@ -1,0 +1,61 @@
+.header {
+  z-index: 5;
+  background:$bg-header;
+  .navbar {
+    .nav-item {
+       padding: 0 Rem(8);
+      .nav-link {
+        color: $text-white;
+        font-size: Rem(15);
+        font-weight: 300;
+      }
+      &.active,
+      &:hover {
+        .nav-link {
+          color: $link-active-color;
+        }
+      }
+      .dropdown-menu{
+        width: 100%;
+        display: block;
+        height: 0;
+        top: -120%;
+        background: $bg-form;
+        @include transition(height , linear ,300ms);
+        form{
+          @include absolute(left 50% top 50% );
+          transform: translate(-50% , -50%);
+          width: 70%;
+          input{
+            width: 84%;
+            font-size: 40px;
+          }
+          .btn-search{
+            padding: 20px;
+          }
+        }
+      }
+      .dropdown-menu.show {
+        height: 100vh;
+        top: 0;
+        @include transition(height , linear ,300ms);
+      }
+    }
+  }
+  .navbar-shrink {
+    padding: 0 0;
+    background: $navbar-black;
+    @include transition(padding 200ms linear) ;
+    .navbar-brand {
+      transform: scale(.6);
+      @include transition(transform 200ms linear) ;
+    }
+    .nav-item{
+      .nav-link {
+        &:hover {
+          color: $link-active-color;
+        }
+      }
+    }
+  }
+}

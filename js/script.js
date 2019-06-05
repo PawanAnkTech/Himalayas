@@ -1,11 +1,20 @@
-var stickyOffset = $('.sticky').offset().top;
+// var stickyOffset = $('.sticky').offset().top;
+//
+// $(window).scroll(function(){
+//   var sticky = $('.sticky'),
+//       scroll = $(window).scrollTop();
+//
+//   if (scroll >= stickyOffset) sticky.addClass('fixed-top');
+//   else sticky.removeClass('fixed-top');
+// });
 
-$(window).scroll(function(){
-  var sticky = $('.sticky'),
-      scroll = $(window).scrollTop();
-
-  if (scroll >= stickyOffset) sticky.addClass('fixed');
-  else sticky.removeClass('fixed');
+$(window).scroll(function() {
+if ($(this).scrollTop() > 1){
+    $('.navbar').addClass("navbar-shrink");
+  }
+  else{
+    $('.navbar').removeClass("navbar-shrink");
+  }
 });
 
 
@@ -45,10 +54,10 @@ this.draw = function(ctx, can) {
   ctx.beginPath();
   var distM = distMouse(this);
   if (distM > 200) {
-    ctx.fillStyle = "#f1f1f1";
+    ctx.fillStyle = "#000";
     ctx.globalAlpha = .2;
   } else {
-    ctx.fillStyle = '#2196F3';
+    ctx.fillStyle = '#fff';
     ctx.globalAlpha = 1 - distM / 240;
   }
   ctx.arc((0.5 + this.x) | 0, (0.5 + this.y) | 0, 3, 0, TAU, false);
@@ -57,7 +66,7 @@ this.draw = function(ctx, can) {
 }
 
 var balls = [];
-for (var i = 0; i < canvas.width * canvas.height / (65*65); i++) {
+for (var i = 0; i < canvas.width * canvas.height / (85*85); i++) {
 balls.push(new Ball(Math.random() * canvas.width, Math.random() * canvas.height));
 }
 
@@ -91,7 +100,7 @@ var dist = Math.hypot(ball.x - ball2.x, ball.y - ball2.y);
       if (dist < 100) {
         var distM = distMouse(ball2);
         if (distM > 150) {
-          ctx.strokeStyle = "#8f9aa3";
+          ctx.strokeStyle = "#c9ccce";
           ctx.globalAlpha = .2;
         } else {
           ctx.globalAlpha = 0;
@@ -108,3 +117,61 @@ var dist = Math.hypot(ball.x - ball2.x, ball.y - ball2.y);
 // Start
 loop();
 //# sourceURL=pen.js
+
+
+var TxtRotate = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 300 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};

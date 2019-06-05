@@ -4,15 +4,197 @@ img {
 body {
   font-family: 'Roboto', sans-serif; }
 
-h1 {
+canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; }
+
+h5 {
   font-family: 'Crimson Text', serif; }
 
 .header {
+  z-index: 5;
   background: rgba(255, 255, 255, 0.2); }
-  .header ul .list-item {
-    padding: 0 8px; }
-    .header ul .list-item .nav-link {
-      font-size: 15px;
+  .header .navbar .nav-item {
+    padding: 0 0.5rem; }
+    .header .navbar .nav-item .nav-link {
+      color: #fff;
+      font-size: 0.9375rem;
       font-weight: 300; }
+    .header .navbar .nav-item.active .nav-link, .header .navbar .nav-item:hover .nav-link {
+      color: #32c4d1; }
+    .header .navbar .nav-item .dropdown-menu {
+      width: 100%;
+      display: block;
+      height: 0;
+      top: -120%;
+      background: rgba(20, 241, 212, 0.7);
+      -webkit-transition: height, linear, 300ms;
+      -moz-transition: height, linear, 300ms;
+      -ms-transition: height, linear, 300ms;
+      transition: height, linear, 300ms; }
+      .header .navbar .nav-item .dropdown-menu form {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 70%; }
+        .header .navbar .nav-item .dropdown-menu form input {
+          width: 84%;
+          font-size: 40px; }
+        .header .navbar .nav-item .dropdown-menu form .btn-search {
+          padding: 20px; }
+    .header .navbar .nav-item .dropdown-menu.show {
+      height: 100vh;
+      top: 0;
+      -webkit-transition: height, linear, 300ms;
+      -moz-transition: height, linear, 300ms;
+      -ms-transition: height, linear, 300ms;
+      transition: height, linear, 300ms; }
+  .header .navbar-shrink {
+    padding: 0 0;
+    background: #2d2a2a;
+    -webkit-transition: padding 200ms linear;
+    -moz-transition: padding 200ms linear;
+    -ms-transition: padding 200ms linear;
+    transition: padding 200ms linear; }
+    .header .navbar-shrink .navbar-brand {
+      transform: scale(0.6);
+      -webkit-transition: transform 200ms linear;
+      -moz-transition: transform 200ms linear;
+      -ms-transition: transform 200ms linear;
+      transition: transform 200ms linear; }
+    .header .navbar-shrink .nav-item .nav-link:hover {
+      color: #32c4d1; }
+
+.section-banner {
+  overflow: hidden; }
+  .section-banner .slider {
+    position: relative; }
+    .section-banner .slider:after {
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      background: rgba(8, 8, 8, 0.8); }
+    .section-banner .slider .carousel-item {
+      height: 100vh; }
+    .section-banner .slider .carousel-control-next,
+    .section-banner .slider .carousel-control-prev {
+      width: auto;
+      height: 40px;
+      top: 50%;
+      left: -5%;
+      transform: translate(0, -50%);
+      z-index: 3; }
+      .section-banner .slider .carousel-control-next .carousel-control-next-icon,
+      .section-banner .slider .carousel-control-next .carousel-control-prev-icon,
+      .section-banner .slider .carousel-control-prev .carousel-control-next-icon,
+      .section-banner .slider .carousel-control-prev .carousel-control-prev-icon {
+        background-image: url(../img/slider-arrow.png);
+        height: 100%; }
+      .section-banner .slider .carousel-control-next .carousel-control-next-icon,
+      .section-banner .slider .carousel-control-prev .carousel-control-next-icon {
+        transform: rotateY(180deg); }
+    .section-banner .slider .carousel-control-next {
+      left: unset;
+      right: -5%; }
+    .section-banner .slider .banner-text {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 75%;
+      height: max-content;
+      z-index: 2;
+      margin: auto; }
+      .section-banner .slider .banner-text .banner-heading {
+        position: relative;
+        font-weight: 600;
+        width: 70%;
+        border-width: 4px !important;
+        letter-spacing: 0.21875rem; }
+        .section-banner .slider .banner-text .banner-heading:before, .section-banner .slider .banner-text .banner-heading:after {
+          content: "";
+          top: 0;
+          left: 0;
+          position: absolute;
+          background: url(../img/slider-title-new-arrow.png) no-repeat scroll 0 center;
+          width: 4px;
+          height: 100%; }
+        .section-banner .slider .banner-text .banner-heading:after {
+          left: unset;
+          right: 0; }
+      .section-banner .slider .banner-text .banner-msg {
+        font-size: 1.375rem;
+        font-weight: 100; }
+  .section-banner:hover .carousel-control-prev {
+    -webkit-transition: all, linear, 300ms;
+    -moz-transition: all, linear, 300ms;
+    -ms-transition: all, linear, 300ms;
+    transition: all, linear, 300ms;
+    left: 5%; }
+    .section-banner:hover .carousel-control-prev:hover .carousel-control-prev-icon {
+      background-image: url(../img/slider-arrow-hover.png); }
+  .section-banner:hover .carousel-control-next {
+    -webkit-transition: all, linear, 300ms;
+    -moz-transition: all, linear, 300ms;
+    -ms-transition: all, linear, 300ms;
+    transition: all, linear, 300ms;
+    right: 5%; }
+    .section-banner:hover .carousel-control-next:hover .carousel-control-next-icon {
+      background-image: url(../img/slider-arrow-hover.png); }
+
+.line {
+  top: 50%;
+  left: 100%;
+  position: absolute;
+  width: 18%;
+  height: 4px;
+  background: #fff; }
+
+.right {
+  left: unset;
+  right: 100%; }
+
+.heading .section-heading {
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  width: max-content;
+  margin: auto;
+  position: relative; }
+  .heading .section-heading .line {
+    width: 50%;
+    left: -70%;
+    height: 2px;
+    background: #32c4d1; }
+  .heading .section-heading .right {
+    left: unset;
+    right: -70%; }
+.heading .sub-heading {
+  font-size: 1.25rem;
+  color: rgba(128, 126, 126, 0.79);
+  font-weight: 100;
+  letter-spacing: .5px; }
+
+.try-it .try-it-heading {
+  font-weight: 100; }
+.try-it .text-tryit {
+  font-weight: 300;
+  font-size: 0.9375rem; }
+.try-it .btns-tryit .btn-info {
+  background: #302b2b none repeat scroll 0 0;
+  border: none; }
+  .try-it .btns-tryit .btn-info:focus, .try-it .btns-tryit .btn-info:hover {
+    box-shadow: none;
+    background: #32c4d1; }
 
 /*# sourceMappingURL=main.css.map */
