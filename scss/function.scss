@@ -76,3 +76,22 @@ font-size: Rem($size);
         -ms-transition-delay: $transition-delay;
             transition-delay: $transition-delay;
 }
+
+
+// keyframes
+// =======================================================
+@mixin keyframes($name) {
+    // chrome and safari
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    // mozilla
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
