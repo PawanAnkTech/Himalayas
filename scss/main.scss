@@ -162,7 +162,7 @@
     .btn-info{
       background:  $color-dark-btn;
       border: none;
-      padding: Rem(10) Rem(15);
+      padding: Rem(12) Rem(15);
       border-radius: Rem(7);
       font-weight: 100;
       font-size: Rem(14);
@@ -171,7 +171,7 @@
         box-shadow: none;
         background:  $link-active-color;
         i{
-          animation: scale linear 300ms;
+          @include animation(scale linear 300ms);
         }
       }
     }
@@ -193,4 +193,8 @@
   100%{
     transform: scale(1);
   }
+}
+.parallax-section{
+  perspective: Rem(300);
+  overflow-x: hidden;
 }

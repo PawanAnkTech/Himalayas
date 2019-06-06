@@ -95,3 +95,10 @@ font-size: Rem($size);
         @content;
     }
 }
+
+@mixin animation($property){
+  -webkit-animation: $property;
+     -moz-animation: $property;
+      -ms-animation: $property;
+          animation: $property;
+}

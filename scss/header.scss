@@ -47,8 +47,11 @@
     background: $navbar-black;
     @include transition(padding 200ms linear) ;
     .navbar-brand {
-      transform: scale(.6);
+      padding: 0;
       @include transition(transform 200ms linear) ;
+      img{
+        transform: scale(.6);
+      }
     }
     .nav-item{
       .nav-link {

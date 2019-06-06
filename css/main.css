@@ -64,11 +64,13 @@ h5 {
     -ms-transition: padding 200ms linear;
     transition: padding 200ms linear; }
     .header .navbar-shrink .navbar-brand {
-      transform: scale(0.6);
+      padding: 0;
       -webkit-transition: transform 200ms linear;
       -moz-transition: transform 200ms linear;
       -ms-transition: transform 200ms linear;
       transition: transform 200ms linear; }
+      .header .navbar-shrink .navbar-brand img {
+        transform: scale(0.6); }
     .header .navbar-shrink .nav-item .nav-link:hover {
       color: #32c4d1; }
 
@@ -224,7 +226,7 @@ h5 {
 .try-it .btns-tryit .btn-info {
   background: #302b2b none repeat scroll 0 0;
   border: none;
-  padding: 0.625rem 0.9375rem;
+  padding: 0.75rem 0.9375rem;
   border-radius: 0.4375rem;
   font-weight: 100;
   font-size: 0.875rem; }
@@ -232,6 +234,9 @@ h5 {
     box-shadow: none;
     background: #32c4d1; }
     .try-it .btns-tryit .btn-info:focus i, .try-it .btns-tryit .btn-info:hover i {
+      -webkit-animation: scale linear 300ms;
+      -moz-animation: scale linear 300ms;
+      -ms-animation: scale linear 300ms;
       animation: scale linear 300ms; }
 
 @-webkit-keyframes scale {
@@ -267,5 +272,8 @@ h5 {
     transform: scale(1.4); }
   100% {
     transform: scale(1); } }
+.parallax-section {
+  perspective: 18.75rem;
+  overflow-x: hidden; }
 
 /*# sourceMappingURL=main.css.map */
