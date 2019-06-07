@@ -1,13 +1,20 @@
 .header {
   z-index: 5;
-  background:$bg-header;
+  background: $bg-header;
   .navbar {
+    @include transition(all,  linear, 400ms);
+    .navbar-brand{
+      img{
+        @include transition(transform,  linear, 400ms);
+      }
+    }
     .nav-item {
        padding: 0 Rem(8);
       .nav-link {
         color: $text-white;
         font-size: Rem(15);
         font-weight: 300;
+        @include transition(color, linear, 400ms);
       }
       &.active,
       &:hover {
@@ -21,7 +28,7 @@
         height: 0;
         top: -120%;
         background: $bg-form;
-        @include transition(height , linear ,300ms);
+        @include transition(height, linear, 300);
         form{
           @include absolute(left 50% top 50% );
           transform: translate(-50% , -50%);
@@ -45,12 +52,12 @@
   .navbar-shrink {
     padding: 0 0;
     background: $navbar-black;
-    @include transition(padding 200ms linear) ;
+
     .navbar-brand {
       padding: 0;
-      @include transition(transform 200ms linear) ;
       img{
         transform: scale(.6);
+
       }
     }
     .nav-item{

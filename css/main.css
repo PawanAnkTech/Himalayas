@@ -14,61 +14,67 @@ canvas {
   bottom: 0;
   z-index: 1; }
 
-h5 {
+h6 {
   font-family: 'Crimson Text', serif; }
 
 .header {
   z-index: 5;
   background: rgba(255, 255, 255, 0.2); }
-  .header .navbar .nav-item {
-    padding: 0 0.5rem; }
-    .header .navbar .nav-item .nav-link {
-      color: #fff;
-      font-size: 0.9375rem;
-      font-weight: 300; }
-    .header .navbar .nav-item.active .nav-link, .header .navbar .nav-item:hover .nav-link {
-      color: #32c4d1; }
-    .header .navbar .nav-item .dropdown-menu {
-      width: 100%;
-      display: block;
-      height: 0;
-      top: -120%;
-      background: rgba(20, 241, 212, 0.7);
-      -webkit-transition: height, linear, 300ms;
-      -moz-transition: height, linear, 300ms;
-      -ms-transition: height, linear, 300ms;
-      transition: height, linear, 300ms; }
-      .header .navbar .nav-item .dropdown-menu form {
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        width: 70%; }
-        .header .navbar .nav-item .dropdown-menu form input {
-          width: 84%;
-          font-size: 40px; }
-        .header .navbar .nav-item .dropdown-menu form .btn-search {
-          padding: 20px; }
-    .header .navbar .nav-item .dropdown-menu.show {
-      height: 100vh;
-      top: 0;
-      -webkit-transition: height, linear, 300ms;
-      -moz-transition: height, linear, 300ms;
-      -ms-transition: height, linear, 300ms;
-      transition: height, linear, 300ms; }
+  .header .navbar {
+    -webkit-transition: all, linear, 400ms;
+    -moz-transition: all, linear, 400ms;
+    -ms-transition: all, linear, 400ms;
+    transition: all, linear, 400ms; }
+    .header .navbar .navbar-brand img {
+      -webkit-transition: transform, linear, 400ms;
+      -moz-transition: transform, linear, 400ms;
+      -ms-transition: transform, linear, 400ms;
+      transition: transform, linear, 400ms; }
+    .header .navbar .nav-item {
+      padding: 0 0.5rem; }
+      .header .navbar .nav-item .nav-link {
+        color: #fff;
+        font-size: 0.9375rem;
+        font-weight: 300;
+        -webkit-transition: color, linear, 400ms;
+        -moz-transition: color, linear, 400ms;
+        -ms-transition: color, linear, 400ms;
+        transition: color, linear, 400ms; }
+      .header .navbar .nav-item.active .nav-link, .header .navbar .nav-item:hover .nav-link {
+        color: #32c4d1; }
+      .header .navbar .nav-item .dropdown-menu {
+        width: 100%;
+        display: block;
+        height: 0;
+        top: -120%;
+        background: rgba(20, 241, 212, 0.7);
+        -webkit-transition: height, linear, 300;
+        -moz-transition: height, linear, 300;
+        -ms-transition: height, linear, 300;
+        transition: height, linear, 300; }
+        .header .navbar .nav-item .dropdown-menu form {
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          width: 70%; }
+          .header .navbar .nav-item .dropdown-menu form input {
+            width: 84%;
+            font-size: 40px; }
+          .header .navbar .nav-item .dropdown-menu form .btn-search {
+            padding: 20px; }
+      .header .navbar .nav-item .dropdown-menu.show {
+        height: 100vh;
+        top: 0;
+        -webkit-transition: height, linear, 300ms;
+        -moz-transition: height, linear, 300ms;
+        -ms-transition: height, linear, 300ms;
+        transition: height, linear, 300ms; }
   .header .navbar-shrink {
     padding: 0 0;
-    background: #2d2a2a;
-    -webkit-transition: padding 200ms linear;
-    -moz-transition: padding 200ms linear;
-    -ms-transition: padding 200ms linear;
-    transition: padding 200ms linear; }
+    background: #2d2a2a; }
     .header .navbar-shrink .navbar-brand {
-      padding: 0;
-      -webkit-transition: transform 200ms linear;
-      -moz-transition: transform 200ms linear;
-      -ms-transition: transform 200ms linear;
-      transition: transform 200ms linear; }
+      padding: 0; }
       .header .navbar-shrink .navbar-brand img {
         transform: scale(0.6); }
     .header .navbar-shrink .nav-item .nav-link:hover {
@@ -195,6 +201,7 @@ h5 {
   font-family: 'Crimson Text', serif;
   font-weight: 700;
   width: max-content;
+  letter-spacing: 0.09375rem;
   margin: auto;
   position: relative; }
   .heading .section-heading .line {
@@ -207,7 +214,7 @@ h5 {
     right: -70%; }
 .heading .sub-heading {
   font-size: 1.25rem;
-  color: rgba(128, 126, 126, 0.79);
+  color: #656363;
   font-weight: 100;
   letter-spacing: .5px; }
 
@@ -272,8 +279,124 @@ h5 {
     transform: scale(1.4); }
   100% {
     transform: scale(1); } }
-.parallax-section {
+.look-section {
   perspective: 18.75rem;
-  overflow-x: hidden; }
+  overflow: hidden; }
+  .look-section .parallax-group {
+    background: url(../img/call-to-action-text.jpg) center fixed no-repeat;
+    background-size: cover;
+    min-height: 15rem;
+    transform: translateZ(-262px) scale(2);
+    transform-style: preserve-3d; }
+  .look-section .look-text-box {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 196, 209, 0.82); }
+    .look-section .look-text-box .look-text-block {
+      width: 75%; }
+      .look-section .look-text-box .look-text-block .look-title {
+        font-weight: 700;
+        letter-spacing: 0.125rem;
+        text-shadow: 1px 3px 1px #bbb8b8; }
+      .look-section .look-text-box .look-text-block .look-text {
+        font-weight: 100;
+        font-size: 1.5rem;
+        letter-spacing: 0.09375rem; }
+    .look-section .look-text-box .purchase-btn {
+      font-size: 24px;
+      padding: 0.875rem 3.125rem;
+      -webkit-transition: all, linear, 900ms;
+      -moz-transition: all, linear, 900ms;
+      -ms-transition: all, linear, 900ms;
+      transition: all, linear, 900ms; }
+      .look-section .look-text-box .purchase-btn:hover {
+        background: #fff !important;
+        color: #32c4d1 !important; }
+
+.card-img-top {
+  border: 0.1875rem solid #fff;
+  outline: 0.0625rem solid #d8d7d7;
+  -webkit-transition: outline, linear, 400ms;
+  -moz-transition: outline, linear, 400ms;
+  -ms-transition: outline, linear, 400ms;
+  transition: outline, linear, 400ms; }
+  .card-img-top:hover {
+    outline-color: #32c4d1; }
+
+.card-body .card-title {
+  font-weight: 600;
+  letter-spacing: 0.03125rem;
+  display: inline-block;
+  -webkit-transition: color, linear, 400ms;
+  -moz-transition: color, linear, 400ms;
+  -ms-transition: color, linear, 400ms;
+  transition: color, linear, 400ms; }
+  .card-body .card-title:hover {
+    color: #32c4d1 !important; }
+.card-body .card-text {
+  font-size: 0.9375rem;
+  letter-spacing: -0.03125rem;
+  color: #625e5e; }
+
+a.btn {
+  font-size: 0.875rem;
+  color: #333333; }
+  a.btn i {
+    vertical-align: middle;
+    margin-top: -2px;
+    -webkit-transition: transform, linear, 400ms;
+    -moz-transition: transform, linear, 400ms;
+    -ms-transition: transform, linear, 400ms;
+    transition: transform, linear, 400ms; }
+    a.btn i:nth-child(1) {
+      -webkit-transition: transform, linear, 800ms;
+      -moz-transition: transform, linear, 800ms;
+      -ms-transition: transform, linear, 800ms;
+      transition: transform, linear, 800ms;
+      margin-right: -2px; }
+  a.btn:hover {
+    color: #32c4d1 !important; }
+  a.btn:hover i {
+    transform: translate(5px); }
+
+.portfolio-img-wrapper {
+  position: relative;
+  overflow: hidden; }
+  .portfolio-img-wrapper .portfolio-img {
+    background: #000; }
+    .portfolio-img-wrapper .portfolio-img img {
+      -webkit-transition: all, linear, 400ms;
+      -moz-transition: all, linear, 400ms;
+      -ms-transition: all, linear, 400ms;
+      transition: all, linear, 400ms; }
+  .portfolio-img-wrapper .discription-text {
+    top: 100%;
+    left: 0;
+    position: absolute;
+    -webkit-transition: top, linear, 400ms;
+    -moz-transition: top, linear, 400ms;
+    -ms-transition: top, linear, 400ms;
+    transition: top, linear, 400ms;
+    width: 100%;
+    height: 100%; }
+    .portfolio-img-wrapper .discription-text .btn {
+      height: 3.125rem;
+      width: 3.125rem; }
+      .portfolio-img-wrapper .discription-text .btn i {
+        line-height: 2.5rem; }
+      .portfolio-img-wrapper .discription-text .btn:hover {
+        background: #fff; }
+    .portfolio-img-wrapper .discription-text .dis-text {
+      color: #32c4d1;
+      font-weight: 100;
+      letter-spacing: 0.03125rem; }
+  .portfolio-img-wrapper:hover .discription-text {
+    top: 0; }
+  .portfolio-img-wrapper:hover img {
+    transform: scale(1.2);
+    opacity: .6; }
 
 /*# sourceMappingURL=main.css.map */

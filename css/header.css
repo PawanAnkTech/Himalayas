@@ -4,12 +4,12 @@ Error: Undefined variable: "$bg-header".
 
 1: .header {
 2:   z-index: 5;
-3:   background:$bg-header;
+3:   background: $bg-header;
 4:   .navbar {
-5:     .nav-item {
-6:        padding: 0 Rem(8);
-7:       .nav-link {
-8:         color: $text-white;
+5:     @include transition(all,  linear, 400ms);
+6:     .navbar-brand{
+7:       img{
+8:         @include transition(transform,  linear, 400ms);
 
 Backtrace:
 scss/header.scss:3
@@ -66,4 +66,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/interna
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$bg-header\".\A         on line 3 of scss/header.scss\A \A 1: .header {\A 2:   z-index: 5;\A 3:   background:$bg-header;\A 4:   .navbar {\A 5:     .nav-item {\A 6:        padding: 0 Rem(8);\A 7:       .nav-link {\A 8:         color: $text-white;"; }
+  content: "Error: Undefined variable: \"$bg-header\".\A         on line 3 of scss/header.scss\A \A 1: .header {\A 2:   z-index: 5;\A 3:   background: $bg-header;\A 4:   .navbar {\A 5:     @include transition(all,  linear, 400ms);\A 6:     .navbar-brand{\A 7:       img{\A 8:         @include transition(transform,  linear, 400ms);"; }

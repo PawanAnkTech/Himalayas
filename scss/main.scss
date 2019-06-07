@@ -125,6 +125,7 @@
     font-family: 'Crimson Text', serif;
     font-weight: 700;
     width: max-content;
+    letter-spacing: Rem(1.5);
     margin: auto;
     @include relative();
     .line{
@@ -194,7 +195,127 @@
     transform: scale(1);
   }
 }
-.parallax-section{
+// .parallax-section{
+//   perspective: Rem(300);
+//   overflow-x: hidden;
+// }
+.look-section{
   perspective: Rem(300);
-  overflow-x: hidden;
+  overflow: hidden;
+  .parallax-group{
+    background: url(../img/call-to-action-text.jpg) center fixed no-repeat;
+    background-size: cover;
+    min-height: Rem(240);
+    transform: translateZ(-262px) scale(2);
+    transform-style: preserve-3d;
+  }
+  .look-text-box{
+    @include absolute(top 0 left 0);
+    width: 100%;
+    height: 100%;
+    background: $bg-look-box;
+    .look-text-block{
+      width: 75%;
+      .look-title{
+        font-weight: 700;
+        letter-spacing: Rem(2);
+        text-shadow: 1px 3px 1px $text-shadow-look;
+      }
+      .look-text{
+        font-weight: 100;
+        font-size: Rem(24);
+        letter-spacing: Rem(1.5);
+      }
+    }
+    .purchase-btn{
+      font-size: 24px;
+      padding: Rem(14) Rem(50);
+      @include transition(all, linear, 900ms);
+      &:hover{
+        background: $text-white !important;
+        color: $link-active-color !important;
+      }
+    }
+  }
+}
+.card-img-top{
+  border: Rem(3) solid $text-white;
+  outline: Rem(1) solid $outline;
+  @include transition(outline, linear, 400ms);
+  &:hover{
+    outline-color: $link-active-color;
+  }
+}
+.card-body{
+  .card-title{
+    font-weight: 600;
+    letter-spacing: Rem(.5);
+    display: inline-block;
+    @include transition(color, linear, 400ms);
+    &:hover{
+      color: $link-active-color !important;
+    }
+  }
+  .card-text{
+    font-size: Rem(15);
+    letter-spacing: Rem(-.5);
+    color: $card-text;
+  }
+}
+a.btn{
+  font-size: Rem(14);
+  color: $card-btn;
+  i{
+    vertical-align: middle;
+    margin-top: -2px;
+    @include transition(transform, linear, 400ms);
+    &:nth-child(1){
+      @include transition(transform, linear, 800ms);
+      margin-right: -2px;
+    }
+  }
+  &:hover{
+    color: $link-active-color !important;
+  }
+  &:hover i{
+    transform: translate(5px);
+  }
+}
+.portfolio-img-wrapper{
+  @include relative();
+  overflow: hidden;
+  .portfolio-img{
+    background: $bg-black;
+    img{
+      @include transition(all, linear, 400ms);
+    }
+  }
+  .discription-text{
+    @include absolute(left 0 top 100%);
+    @include transition(top, linear, 400ms);
+    width: 100%;
+    height: 100%;
+    .btn{
+      height: Rem(50);
+      width: Rem(50);
+      i {
+        line-height: Rem(40);
+      }
+      &:hover{
+        background: $text-white;
+      }
+    }
+    .dis-text{
+      color: $link-active-color;
+      font-weight: 100;
+      letter-spacing: Rem(.5)
+    }
+  }
+  &:hover .discription-text {
+    top: 0;
+  }
+  &:hover img{
+    transform: scale(1.2);
+    opacity: .6;
+  }
 }
