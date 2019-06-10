@@ -195,10 +195,6 @@
     transform: scale(1);
   }
 }
-// .parallax-section{
-//   perspective: Rem(300);
-//   overflow-x: hidden;
-// }
 .look-section{
   perspective: Rem(300);
   overflow: hidden;
@@ -262,23 +258,25 @@
     color: $card-text;
   }
 }
-a.btn{
-  font-size: Rem(14);
-  color: $card-btn;
-  i{
-    vertical-align: middle;
-    margin-top: -2px;
-    @include transition(transform, linear, 400ms);
-    &:nth-child(1){
-      @include transition(transform, linear, 800ms);
-      margin-right: -2px;
+.offer,.blog{
+  a.btn{
+    font-size: Rem(14);
+    color: $card-btn;
+    i{
+      vertical-align: middle;
+      margin-top: -2px;
+      @include transition(transform, linear, 400ms);
+      &:nth-child(1){
+        @include transition(transform, linear, 800ms);
+        margin-right: -2px;
+      }
     }
-  }
-  &:hover{
-    color: $link-active-color !important;
-  }
-  &:hover i{
-    transform: translate(5px);
+    &:hover{
+      color: $link-active-color !important;
+    }
+    &:hover i{
+      transform: translate(5px);
+    }
   }
 }
 .portfolio-img-wrapper{
@@ -324,23 +322,21 @@ a.btn{
   @include relative();
   perspective: Rem(300);
   overflow: hidden;
+  .bg-image-team,
   .bg-image{
     @include relative();
     background: url(../img/blog-bg1.jpg) no-repeat center fixed;
     background-size: cover;
-    min-height: 190vh;
-    transform: translateZ(-262px) scale(2);
+    transform: translateZ(-255px) scale(2);
     transform-style: preserve-3d;
     &:before{
       content: "";
       @include absolute(left 0 top 0 right 0 bottom 0);
       background: $background-blog;
-      z-index: 0;
+      z-index: -1;
     }
   }
   .blog-content{
-    @include absolute(left 0 top 0);
-    width: 100%;
     .blog-body{
       .blog-heading{
         color: $bg-black;
@@ -356,12 +352,6 @@ a.btn{
           color: $link-active-color;
         }
       }
-      .blog-text{
-        font-size: Rem(14);
-        letter-spacing: .5px;
-        font-weight: 100;
-
-      }
     }
   }
   .view-all{
@@ -373,7 +363,183 @@ a.btn{
       color: $text-white !important;
     }
   }
+  .bg-image-team{
+    background: url(../img/paris-843229_12801.jpg) no-repeat center fixed;
+    background-size: cover;
+    &:before{
+      background: $bg-team;
+    }
+  }
+}
+.address,
+.contact-dis,
+.blog-text{
+  font-size: Rem(14);
+  letter-spacing: .5px;
+  font-weight: 100;
+
 }
 .call-to-action{
   background: $link-active-color;
+}
+.team{
+  .team-member{
+    @include relative();
+    overflow: hidden;
+    .member-img{
+      @include relative();
+      z-index: 1;
+      @include transition(transform, linear, 600ms);
+    }
+    .member-detail{
+      @include absolute(left 0 top 100% right 0 bottom 0);
+      background: $link-active-color;
+      z-index: 2;
+      @include transition(transform, linear, 750ms);
+      .designation{
+        @include relative();
+        font-size: Rem(20);
+        &:after{
+          content: "";
+          @include absolute(left 0 bottom 0 top 100% right 0);
+          margin: auto;
+          width: 15%;
+          background: #fff;
+          height: Rem(2);
+        }
+      }
+      font-size: Rem(14);
+      .member-dis{
+      }
+    }
+    &:hover .member-img{
+      transform: translateY(-60%);
+    }
+    &:hover .member-detail{
+      top: 0;
+    }
+  }
+}
+
+.contact{
+  .contact-heading{
+    letter-spacing: Rem(3);
+  }
+  .contact-dis{
+    a,a:hover,a:focus{
+      color: $link-active-color;
+    }
+  }
+  .list-group-item{
+    border-bottom: Rem(1) solid #dee2e6!important;
+    .address{
+      @include relative();
+      display: block;
+      font-size: Rem(16);
+    }
+    &:last-child{
+      border: 0!important;
+    }
+  }
+  .form-contact{
+    .form-group{
+      margin-bottom: Rem(25) !important;
+      label{
+        color: $label-color;
+      }
+      .form-control{
+        border-color: $label-color;
+        &:focus,.btn{
+          box-shadow: none;
+        }
+      }
+    }
+    .btn-submit{
+      background: $color-dark-btn ;
+      color: $text-white;
+      &:hover{
+        background: $link-active-color;
+      }
+    }
+  }
+}
+
+label.address{
+  &:before{
+    content: "\f3c5";
+    @include absolute(left -25px top 0);
+    width: Rem(25);
+    height: Rem(25);
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 700;
+  }
+}
+.cell{
+  label.address{
+    &:before{
+      content: "\f095";
+      transform: rotateY(180deg);
+      left: Rem(-35);
+      margin-top: Rem(3);
+    }
+  }
+}
+.mail{
+  border-bottom: 0!important;
+  label.address{
+    &:before{
+      content: "\f0e0";
+    }
+  }
+}
+.footer {
+  background: $navbar-black;
+  .footer-heading{
+    margin-bottom: 34px;
+    @include relative();
+    &:after{
+      content: "";
+      @include absolute(left 0 bottom -10px);
+      width: Rem(60);
+      height: Rem(2);
+      background: $link-active-color;
+    }
+  }
+  .text-dis, .link {
+    font-size: Rem(15);
+  }
+  .link, i {
+    @include transition(color, ease, 400ms);
+    &:hover,&:hover i{
+      color: $link-active-color !important;
+    }
+  }
+}
+.footer-bottom{
+  .site-dis-text{
+    a{
+      color: $link-active-color;
+    }
+  }
+  .list-inline-item{
+    border-right: 1px solid $text-white;
+    &:not(last-child){
+      margin-right: 0;
+    }
+    &:last-child{
+      border-right: 0;
+      a{
+        padding-right:0;
+        i{
+
+        }
+      }
+    }
+    a{
+      padding: 0 10px;
+      i{
+        font-size: 18px;
+      }
+    }
+  }
 }
