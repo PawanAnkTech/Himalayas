@@ -8,14 +8,27 @@
 //   else sticky.removeClass('fixed-top');
 // });
 
+// $(window).scroll(function() {
+// if ($(this).scrollTop() > 1){
+//     $('.navbar').addClass("navbar-shrink");
+//   }
+//   else{
+//     $('.navbar').removeClass("navbar-shrink");
+//   }
+// });
+
+
 $(window).scroll(function() {
-if ($(this).scrollTop() > 1){
-    $('.navbar').addClass("navbar-shrink");
-  }
-  else{
-    $('.navbar').removeClass("navbar-shrink");
-  }
-});
+       if($(window).scrollTop() + $(window).height() < $(document).height()) {
+           $('.navbar').addClass("navbar-shrink");
+       }
+       else{
+         $('.navbar').removeClass("navbar-shrink");
+       }
+   });
+
+
+
 
 
 var canvas = document.querySelector("canvas");
